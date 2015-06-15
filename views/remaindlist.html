@@ -1,0 +1,29 @@
+
+
+<div class="header-logo"><img src="images/app_notes_icon.jpg" width="50" height="50" alt="Notes" /><h2 class="header-content">Notes</h2></div>
+<hr class="bigLine">
+<div> <h3 class="body-content">Reaminder List and Topics</h2> </div>
+<table class="table table-striped table-bordered" width="100%">
+	<tr>
+		<th>Remainder Topic</th>
+        <th>Subject</th>
+        <th>Topics to be study</th>
+        <th>Description about Topic</th>
+        <th>Reference link</th>
+		<th>Time Updated</th>
+	</tr>
+	<tr ng:repeat="note in notes.$filter(query).$orderBy(orderProp)">
+		<td>{{note.title}}</td>
+        <td>{{note.subject}}</td>
+        <td>{{note.topics}}</td>
+        <td>{{note.body}}</td>
+        <td>{{note.reflink}}</td>
+		<td>{{note.updated | date:'MM/dd/yyyy - h:mma'}}</td>
+  	</tr>
+</table>
+
+<p align="center" ng:show="notes.length==0">
+	No Notes Found...
+</p>
+<hr>
+<a href="#/notes/remaind" class="btn btn-primary">Add Remainder</a>

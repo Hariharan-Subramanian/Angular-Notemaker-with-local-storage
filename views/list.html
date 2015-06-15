@@ -1,0 +1,61 @@
+
+
+<div class="header-logo"><img src="images/app_notes_icon.jpg" width="50" height="50" alt="Notes" /><h2 class="header-content">Notes</h2></div>
+<hr class="bigLine">
+<div id="updateinfo" > <h3 class="body-content">Select  and Update Your Notes</h2> </div>
+<div id="deleteinfo"> <h3 class="body-content">Select  and Delete Your Notes</h2> </div>
+<div class="search-box-left">
+	<label for="sortby">Sort by</label>
+	<select name="orderProp">
+		  <option value="title">Title</option>
+		  <option value="-updated">Newest</option>
+	</select>
+</div>
+<div class="search-box-right">    
+	<label for="search">Search</label> <input type="text" name="query" class="form-control" placeholder="Search..." />
+</div>
+<div  style="display:block;width:100%; padding-top:5%;">
+<div ng:repeat="note in notes.$filter(query).$orderBy(orderProp)" style="display:block;float:left;border:2px solid black;background-color:#F0F8FF; width:auto;padding:3%; margin-left:2%;margin-top:2%;">
+<table  width="100%">
+	<tr >
+		<td class="leftclass">S.No</td><td class="rightclass"><strong><a href="#/notes/{{note.id}}">{{note.id}}</a></strong></td>
+    </tr>
+    <tr>
+		<td class="leftclass">Title</td><td class="rightclass">{{note.title}}</td>
+    </tr>
+    <tr>
+       <td class="leftclass">Related To Subject/Group</td> <td class="rightclass">{{note.group}}</td>
+    </tr>
+    <tr>
+        <td>Priority</td>  <td>{{note.priority}}</td>
+    </tr>
+    <tr>
+        <td>Key points</td><td>{{note.keypoints}}</td>
+    </tr>
+    <tr>
+         <td>Book name/Link</td><td>{{note.bookname}}</td>
+    </tr>
+    <tr>
+		<td>Description</td><td>{{note.body}}</td>
+    </tr>
+    <tr>
+         <td>Status</td><td>{{note.status}}</td>
+    </tr>
+    <tr>
+        <td>Professor/Lecturer Notes</td><td>{{note.pnotes}}</td>
+    </tr>
+    <tr>
+		<td>Time Updated</td><td>{{note.updated | date:'MM/dd/yyyy - h:mma'}}</td>
+    </tr>
+    <tr>
+       <td>Edit Options</td><td><a  href="" class="btn btn-primary updated" ng:click="edit(note.id)" title="Edit">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;<a   href="" class="btn btn-danger deleted" ng:click="delete(note.id)" title="Delete">Remove</a></td>
+	</tr>
+</table>
+    </div>
+</div>
+
+<p align="center" ng:show="notes.length==0">
+	No Notes Found...
+</p>
+<hr>
+<!--<a href="#/notes/add" class="btn btn-primary">Add Note</a>-->

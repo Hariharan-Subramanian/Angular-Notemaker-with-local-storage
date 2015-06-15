@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org/">
+
+<head>
+    <meta charset="utf-8">
+    <title>Note Application</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body ng:controller="NoteCtrl">
+    <header>
+        <div class="container-fluid">
+            <div class="row well well-sm">
+                <h3 class="text-center"> NoteMaker -Complete Edition for Success Makers </h3>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="box">
+            <div class="row">
+                <!-- sidebar -->
+                <div class="column col-sm-3" id="sidebar">
+                    <a class="logo" href="#">B</a>
+                    <ul class="nav">
+                        <li class="active"><a href="#/notes/add">Make Note</a>
+                        </li>
+                        <li><a href="#/notes/update" >Update</a>
+                        </li>
+                        <li><a href="#/notes/rlist" ng:click="remaindeanote()">Remainder</a>
+                        </li>
+                        <li><a href="#/notes/delete" ng:click="deleteanote()">Delete</a>
+                        </li>
+                        <li><a href="#/notes/pwd" ng:click="lockApplication()">Lock</a>
+                        </li>
+                        <li><a href="#/notes/help" ng:click="help()">Help</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /sidebar -->
+                <!-- main -->
+                <div class="column col-sm-9" id="main">
+                    <div class="padding">
+                        <div class="full col-sm-9">
+                            <ng:view></ng:view>
+                        </div>
+                        <!-- /col-9 -->
+                    </div>
+                    <!-- /padding -->
+                </div>
+                <!-- /main -->
+            </div>
+        </div>
+    </div>
+    <script src="lib/angular/angular.js" ng:autobind></script>
+    <script src="lib/jquery-1.8.0.min.js" ng:autobind></script>
+    <script src="js/controllers.js"></script>
+</body>
+
+</html>
